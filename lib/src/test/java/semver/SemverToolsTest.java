@@ -57,6 +57,13 @@ class SemverToolsTest {
     }
 
     @Test
+    void semverSortWithIllegalVersionThrowsIllegalVersionException() {
+        List<String> versionsList = Arrays.asList("1.0.0", "1.0.0-alpha.beta", "1.0.0-alpha", "1.2.3-0123", "1.0.0-beta.11", "1.0.0-rc.1", "1.0.0-beta.2", "1.0.0-alpha.1", "1.0.0-beta");
+        IllegalVersionException thrownException = assertThrows(IllegalVersionException.class, () -> SemverTools.sortAscending(versionsList), "Expected thrown IllegalVersionException but did not receive one");
+        assertEquals("Version does not follow semver convention", thrownException.getMessage());
+    }
+
+    @Test
     void getLatestVersionWithSameVersionCoreReturnsTrue() {
         List<String> versionsList = Arrays.asList("1.0.0", "1.0.0-alpha.beta", "1.0.0-alpha", "1.0.0-beta.11", "1.0.0-rc.1", "1.0.0-beta.2", "1.0.0-alpha.1", "1.0.0-beta");
         String expectedResult = "1.0.0";

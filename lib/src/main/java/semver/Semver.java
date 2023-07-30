@@ -28,7 +28,7 @@ class Semver {
             this.major = Integer.parseInt(tokens[0]);
         }
         else {
-            throw new UnsupportedOperationException("Version does not follow semver convention");
+            throw new IllegalVersionException("Version does not follow semver convention");
         }
     }
 
