@@ -26,4 +26,4 @@ public class AscendingSemverComparator implements Comparator<Semver> {
             return 0;
         }
     }
-    }
+}
