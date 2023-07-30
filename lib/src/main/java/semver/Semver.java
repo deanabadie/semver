@@ -1,6 +1,6 @@
 package semver;
 
-public class Semver {
+class Semver {
 
     private int major;
     private int minor;
@@ -8,7 +8,7 @@ public class Semver {
     private String preRelease;
     private String buildMetadata;
 
-    public Semver(String version) {
+    protected Semver(String version) {
         if (SemverTools.isValidSemver(version)) {
             String[] tokens = version.split("\\.", 3);
             if (tokens[2].contains("-") || tokens[2].contains("+")) {

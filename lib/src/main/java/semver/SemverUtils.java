@@ -2,7 +2,7 @@ package semver;
 
 import java.util.Objects;
 
-public class SemverUtils {
+class SemverUtils {
 
     private SemverUtils() {
 

@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import static semver.SemverUtils.comparePreReleasesForVersions;
 
-public class AscendingSemverComparator implements Comparator<Semver> {
+class AscendingSemverComparator implements Comparator<Semver> {
 
     @Override
     public int compare(Semver v1, Semver v2) {

@@ -1,6 +1,6 @@
 package semver;
 
-public enum SortOrder {
+enum SortOrder {
     ASC,
     DSC
 }

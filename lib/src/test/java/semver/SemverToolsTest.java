@@ -16,13 +16,11 @@ class SemverToolsTest {
 
     @Test
     void isValidSemverWithValidVersionReturnsTrue() {
-        SemverTools classUnderTest = new SemverTools();
         VALID_VERSIONS.forEach(version -> assertTrue(SemverTools.isValidSemver(version)));
     }
 
     @Test
     void isValidSemverWithInvalidVersionReturnsFalse() {
-        SemverTools classUnderTest = new SemverTools();
         INVALID_VERSIONS.forEach(version -> assertFalse(SemverTools.isValidSemver(version)));
     }
 
