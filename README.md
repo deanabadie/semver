@@ -1,8 +1,8 @@
 # SemVer for Java
 
-The semver package for Java provides functionalities which conform to the semantic versioning convention: https://semver.org/  
+The semver package for Java provides functionalities which comply with the semantic versioning convention: https://semver.org/  
 These functionalities include the following:
-* Validate a given version string to conform to the SemVer convention
+* Validate a given version string to comply with the SemVer convention
 * Sort versions in descending and ascending order
 * Get latest and oldest version from a given list
 
