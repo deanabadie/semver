@@ -32,43 +32,43 @@ class Semver {
         }
     }
 
-    public int getMajor() {
+    protected int getMajor() {
         return major;
     }
 
-    public void setMajor(Integer major) {
+    protected void setMajor(Integer major) {
         this.major = major;
     }
 
-    public int getMinor() {
+    protected int getMinor() {
         return minor;
     }
 
-    public void setMinor(Integer minor) {
+    protected void setMinor(Integer minor) {
         this.minor = minor;
     }
 
-    public int getPatch() {
+    protected int getPatch() {
         return patch;
     }
 
-    public void setPatch(Integer patch) {
+    protected void setPatch(Integer patch) {
         this.patch = patch;
     }
 
-    public String getPreRelease() {
+    protected String getPreRelease() {
         return preRelease;
     }
 
-    public void setPreRelease(String preRelease) {
+    protected void setPreRelease(String preRelease) {
         this.preRelease = preRelease;
     }
 
-    public String getBuildMetadata() {
+    protected String getBuildMetadata() {
         return buildMetadata;
     }
 
-    public void setBuildMetadata(String buildMetadata) {
+    protected void setBuildMetadata(String buildMetadata) {
         this.buildMetadata = buildMetadata;
     }
 
