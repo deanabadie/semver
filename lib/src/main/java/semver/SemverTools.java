@@ -10,25 +10,48 @@ import java.util.stream.Collectors;
 
 public class SemverTools {
 
+    private SemverTools() {}
+
     private static final String SEMVER_REGEX_PATTERN = "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$";
 
+    /**
+     * Checks if a given version complies with the SemVer convention.
+     * @param version The version to validate.
+     * @return true if the specified version complies with the SemVer convention, false otherwise.
+     */
     public static boolean isValidSemver(String version) {
         Pattern pattern = Pattern.compile(SEMVER_REGEX_PATTERN);
         Matcher matcher = pattern.matcher(version);
         return matcher.find();
     }
+
+    /**
+     * Returns a given list of SemVer versions in ascending order according to SemVer rules of precedence.
+     * @param versionsList The list of SemVer versions to sort.
+     * @return A list of SemVer versions sorted in ascending order.
+     */
     public static List<String> sortAscending(List<String> versionsList) {
         List<Semver> semverList = versionsList.stream().map(Semver::new).sorted(new AscendingSemverComparator())
                 .collect(Collectors.toList());
         return semverList.stream().map(Semver::toString).collect(Collectors.toList());
     }
 
+    /**
+     * Returns a given list of SemVer versions in descending order according to SemVer rules of precedence.
+     * @param versionsList The list of SemVer versions to sort.
+     * @return A list of SemVer versions sorted in descending order.
+     */
     public static List<String> sortDescending(List<String> versionsList) {
         List<Semver> semverList = versionsList.stream().map(Semver::new).sorted(new DescendingSemverComparator())
                 .collect(Collectors.toList());
         return semverList.stream().map(Semver::toString).collect(Collectors.toList());
     }
 
+    /**
+     * Returns the latest version from a list of SemVer versions according to SemVer rules of precedence.
+     * @param versionsList A list of SemVer versions.
+     * @return The latest version in the list.
+     */
     public static String getLatestVersion(List<String> versionsList) {
         return versionsList.stream().map(Semver::new)
                 .sorted(new DescendingSemverComparator())
@@ -36,6 +59,11 @@ public class SemverTools {
                 .map(Semver::toString).orElse(null);
     }
 
+    /**
+     * Returns the oldest version from a list of SemVer versions according to SemVer rules of precedence.
+     * @param versionsList A list of SemVer versions.
+     * @return The oldest version in the list.
+     */
     public static String getOldestVersion(List<String> versionsList) {
         return versionsList.stream().map(Semver::new)
                 .sorted(new AscendingSemverComparator())
